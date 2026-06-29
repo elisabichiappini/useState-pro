@@ -31,6 +31,7 @@
 }
 
 .accordion {
+    padding: 0 3rem;
   .title {
     display: flex;
     align-items: center; 
@@ -38,5 +39,9 @@
     padding: 0 3rem;
     gap: 0.5rem;
     background-color: rgb(235, 235, 235);
+  }
+  .content {
+    padding: 1rem 3rem;
+    background-color: rgb(103, 99, 99);
   }
 }
