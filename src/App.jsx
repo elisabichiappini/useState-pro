@@ -38,7 +38,6 @@ export default function () {
           {data.content}
         </Accordion>
       ))}
-
     </div>
   )
 }
