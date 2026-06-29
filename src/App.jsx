@@ -5,21 +5,40 @@ import Accordion from './components/Accordion.jsx';
 export default function () {
   const [currentOpen, setCurrentOpen] = useState(null);
 
+  const accordionsData = [
+    {
+      title: "Accordion Counter",
+      content: <Counter />
+    },
+    {
+      title: "Testo Accordion",
+      content: <>
+        <h2>Contenuto dell'accordion</h2>
+        <p>"Lorem ipsum sorem lorem ipsum ipsum dolor sit amet super lorem ipsum dolor sit amet super lorem ipsum dolor sit amet super" </p></>
+    },
+    {
+      title: "Breve Accordion",
+      content: <>
+        <h2>Brutto testo</h2>
+        <p>"Lorem ipsum sorem lorem ipsum ipsum dolor sit amet super lorem ipsum dolor sit amet super lorem ipsum dolor sit amet super" </p>
+      </>
+    }
+  ];
+
   return (
     <div>
       <h1>Hello, World!</h1>
+      {accordionsData.map((data, index) => (
+        <Accordion
+          key={index}
+          title={data.title}
+          isOpen={currentOpen === index}
+          onAccordionClick={() => setCurrentOpen(currentOpen === index ? null : index)}
+        >
+          {data.content}
+        </Accordion>
+      ))}
 
-      <Accordion title="Accordion Counter" isOpen={currentOpen === 0} onAccordionClick={() => setCurrentOpen(currentOpen === 0 ? null : 0)} >
-        <Counter />
-      </Accordion>
-      <Accordion title="Testo Accordion" isOpen={currentOpen === 1} onAccordionClick={() => setCurrentOpen(currentOpen === 1 ? null : 1)} >
-        <h2>Contenuto dell'accordion</h2>
-        <p>"Lorem ipsum sorem lorem ipsum ipsum dolor sit amet super lorem ipsum dolor sit amet super lorem ipsum dolor sit amet super" </p>
-      </Accordion>
-      <Accordion title="Breve Accordion" isOpen={currentOpen === 2} onAccordionClick={() => setCurrentOpen(currentOpen === 2 ? null : 2)} >
-        <h2>Brutto testo</h2>
-        <p>"Lorem ipsum sorem lorem ipsum ipsum dolor sit amet super lorem ipsum dolor sit amet super lorem ipsum dolor sit amet super" </p>
-      </Accordion>
     </div>
   )
 }
