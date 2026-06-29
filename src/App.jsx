@@ -30,7 +30,7 @@ export default function () {
       <h1>Hello, World!</h1>
       {accordionsData.map((data, index) => (
         <Accordion
-          key={index}
+          key={`accordion-${index}`}
           title={data.title}
           isOpen={currentOpen === index}
           onAccordionClick={() => setCurrentOpen(currentOpen === index ? null : index)}
@@ -38,6 +38,7 @@ export default function () {
           {data.content}
         </Accordion>
       ))}
+
     </div>
   )
 }
