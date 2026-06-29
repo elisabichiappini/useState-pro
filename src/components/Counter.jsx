@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
 export default function Counter() {
-    let count = 0;
+    const [count, setCount] = useState(0);
     
     function handleIncrement() { 
-        count++;
-        console.log(count);
+        setCount(count + 1);
     }
 
     return (
@@ -13,8 +12,7 @@ export default function Counter() {
             <p>Conteggio: {count}</p>
             <button onClick={handleIncrement}>+</button>
             <button onClick={() => {
-                count--;
-                console.log(count);
+                setCount(count - 1);
             }}>-</button>
         </div>
     )
